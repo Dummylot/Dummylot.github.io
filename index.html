@@ -33,5 +33,33 @@
             </tr>
         </table>
     </div>
+    <section id="ads">
+        <h2>Check Out My Friends' Projects!</h2>
+        <div class="ad">
+          <img src="friend-project1.jpg" alt="Project 1">
+          <h3>Project Title</h3>
+          <p>Short description of the project goes here.</p>
+          <a href="https://project-link.com" target="_blank">Learn More</a>
+        </div>
+        <!-- Add more ad divs as needed -->
+      </section>
+      <script>
+        fetch('ads.json')
+          .then(response => response.json())
+          .then(data => {
+            const adsContainer = document.getElementById('ads');
+            data.forEach(ad => {
+              const adDiv = document.createElement('div');
+              adDiv.className = 'ad';
+              adDiv.innerHTML = `
+                <img src="${ad.image}" alt="${ad.title}">
+                <h3>${ad.title}</h3>
+                <p>${ad.description}</p>
+                <a href="${ad.link}" target="_blank">Learn More</a>
+              `;
+              adsContainer.appendChild(adDiv);
+            });
+          });
+      </script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+[
+    {
+      "title": "Friend's Project 1",
+      "description": "A cool project about...",
+      "image": "project1.jpg",
+      "link": "https://project1.com"
+    },
+    {
+      "title": "Friend's Project 2",
+      "description": "Another amazing project...",
+      "image": "project2.jpg",
+      "link": "https://project2.com"
+    }
+  ]
+  

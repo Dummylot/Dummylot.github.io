@@ -66,3 +66,17 @@ a {
 a:hover {
   color: #ff8c00;
 }
+#ads {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+.ad {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+.ad img {
+  max-width: 100%;
+  height: auto;
+}
+
