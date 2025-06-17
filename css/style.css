@@ -1,0 +1,8 @@
+* { box-sizing: border-box; } 
+body {margin: 0;}
+#textbig{padding:10px;bottom:0px;float:left;margin:10px 0px 0px 414px;position:relative;display:inline-block;font-family:Comic Sans MS, cursive, sans-serif;font-size:38px;}
+#ytimg{color:black;font-size:0px;width:130px;height:91px;margin:235px 0px 0px -640px;}
+#socials{padding:10px;float:left;margin:117px -13px -23px -289px;width:auto;font-size:34px;font-family:Comic Sans MS, cursive, sans-serif;}
+#ghimg{color:black;width:156px;margin:0px 31px 0px 217px;}
+#stmimg{color:black;width:162px;margin:0px 0px 0px 173px;}
+#textsmoll{padding:10px;float:none;font-family:Comic Sans MS, cursive, sans-serif;}
