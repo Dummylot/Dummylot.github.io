@@ -1,8 +1,53 @@
 * { box-sizing: border-box; } 
-body {margin: 0;}
-#textbig{padding:10px;bottom:0px;float:left;margin:10px 0px 0px 414px;position:relative;display:inline-block;font-family:Comic Sans MS, cursive, sans-serif;font-size:38px;}
-#ytimg{color:black;font-size:0px;width:130px;height:91px;margin:235px 0px 0px -640px;}
-#socials{padding:10px;float:left;margin:117px -13px -23px -289px;width:auto;font-size:34px;font-family:Comic Sans MS, cursive, sans-serif;}
-#ghimg{color:black;width:156px;margin:0px 31px 0px 217px;}
-#stmimg{color:black;width:162px;margin:0px 0px 0px 173px;}
-#textsmoll{padding:10px;float:none;font-family:Comic Sans MS, cursive, sans-serif;}
+body {
+    margin: 0;
+}
+#textbig {
+  padding: 10px;
+  position: relative;
+  display: block;
+  font-family: Comic Sans MS, cursive, sans-serif;
+  font-size: 38px;
+  text-align: center;
+  margin: 0 auto;
+  width: fit-content;
+}
+#socialtxt {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 34px;
+  font-family: Comic Sans MS, cursive, sans-serif;
+  margin-top: 100px;
+}
+#ytimg, #ghimg, #stmimg {
+  width: 130px;
+  height: auto;
+}
+
+#textsmoll{
+    padding:10px;
+    float:none;
+    font-family:Comic Sans MS, cursive, sans-serif;
+}
+.socials {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  gap: 30px; 
+  margin-top: 50px;
+}
+
+.socials img {
+  width: 80px; 
+  height: auto;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.socials img:hover {
+  transform: scale(1.4); 
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
